@@ -1,0 +1,39 @@
+<!-- index.html
+x Build a form
+  Two number inputs
+  4 button inputs:  +, -, *, /   <- Choose one!
+  = button
+  'C' button
+
+client.js
+  onReady
+   x   event listner for = button
+      event listner for 'C' button
+   x   Initial GET /equation call, and update the DOM with the history
+
+  event handler for = button
+   x event prevent default
+   x take user input (val 1, val 2, opperation) 
+   x POST it to server at /equation               1*
+     x inside the .then of our POST, do a GET /equation       4*
+      x  inside the .then of our GET, take the equation history data
+      x  from the response, and update the DOM.
+
+  event handler for 'C' button
+    clear input fields (val 1, val 2, opperation)
+
+server.js
+ x POST route for /equation    2*
+  x  Take in my equation object: (val 1, val 2, opperation)    
+    "Do the stuff" ->
+     x   Unpack the equation <- Take the object and make it useful
+     x   Find the answer to the equation  (Handle: +, -, *, /)
+     x       Turn strings ('2', '4') into numbers
+     x       Figure out how to turn '+', etc.. into actually adding (if thens!)
+     x       Then calculate the answer
+     x       Then, package it all back up into an object to store.
+     x   Store the equation with answer
+    x    Send back the "OK".         3*
+
+ x GET route for /equation
+  x  Send back the full history of equations      5* -->

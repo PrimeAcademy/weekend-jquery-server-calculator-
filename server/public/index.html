@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Calculator!</title>
+  <script src="vendors/jquery.min.js"></script>
+  <script src="scripts/client.js"></script>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <h1>Server Side Calculator</h1>
+
+  <form id="equation-form">
+    <input id="number-one" type="number" placeholder="Number 1">
+    <button id="plus" class="opperation">+</button>
+    <button id="minus" class="opperation">-</button>
+    <button id="multiply" class="opperation">*</button>
+    <button id="divide" class="opperation">/</button>
+    <input id="number-two" type="number" placeholder="Number 2">
+    <button id="calculate">=</button>
+    <button id="clear">C</button>
+  </form>
+
+  <h1 id="newest-answer"></h1>
+
+
+  <ul id="equation-history">
+
+  </ul>
+  <!-- 
+
+index.html
+ Build a form
+  Two number inputs
+  4 button inputs:  +, -, *, /   <- Choose one!
+  = button
+  'C' button
+
+client.js
+  onReady
+     x event listner for = button
+      event listner for 'C' button
+      Initial GET /equation call, and update the DOM with the history
+
+  event handler for = button
+  x  take user input (val 1, val 2, opperation) from the DOM
+    validate user input
+    package it up
+    POST it to server at /equation               1*
+      inside the .then of our POST, do a GET /equation       4*
+        inside the .then of our GET, take the equation history data
+        from the response, and update the DOM.
+
+  event handler for 'C' button
+    clear input fields (val 1, val 2, opperation)
+
+server.js
+  POST route for /equation    2*
+    Take in my equation object: (val 1, val 2, opperation)    
+    "Do the stuff" ->
+        Unpack the equation <- Take the object and make it useful
+        Find the answer to the equation  (Handle: +, -, *, /)
+        Store the equation with answer
+        Send back the "OK".         3*
+
+  GET route for /equation
+    Send back the full history of equations      5*
+
+ -->
+
+</body>
+
+</html>
