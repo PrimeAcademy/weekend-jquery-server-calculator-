@@ -8,6 +8,7 @@ function onReady() {
 
   $('#equation-form').on('click', '.opperation', updateCurrentOpperation);
 
+  $('#clear').on('click', clearInputs);  // Event Listner
   $('#calculate').on('click', sendToServer);  // Event Listner
 
   getHistory();
@@ -17,7 +18,15 @@ function updateCurrentOpperation(event) {
   event.preventDefault();
   currentOpperation = $(this).text();
   console.log('updated currentOpperation:', currentOpperation);
+}
 
+function clearInputs(event) {  // Event Handler
+  event.preventDefault();
+
+  $('#number-one').val('');
+  $('#number-two').val('');
+
+  currentOpperation = undefined;
 }
 
 // get the equation info from the DOM and POST it to /equation.

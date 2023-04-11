@@ -21,7 +21,6 @@ app.post('/equation', (req, res) => {
   console.log('POST /equation request received');
   let newEquationAsStrings = req.body;
 
-  valdateInputData(newEquationAsStrings);
   // newEquation looks like: { numberOne: '2', opperation: '+', numberTwo: '4' }
   let equation = calculateEquationWithAnswer(newEquationAsStrings);
   // equation looks like: { numberOne: 2, opperation: '*', numberTwo: 3, answer: 6 }
